@@ -1,12 +1,12 @@
 
-function List()
+function List({stdata,clg,OnRemoveButtonclick})
 {
-    return <> <h3>Student List</h3>
+    // let {stdata,clg} = props
+   
+
+    return <> <h3>Student List : {clg}</h3>
             <ul>
-            <li>Vishal</li>
-            <li>Farukh</li>
-            <li>Ibrahim</li>
-            <li>Hardik</li>
+            {stdata.map((element)=><><li key={element}>{element} <button onClick={()=>OnRemoveButtonclick(element)}>Remove</button></li><br></br></>)}
             </ul>
             </>
 }
