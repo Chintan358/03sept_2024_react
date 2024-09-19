@@ -14,11 +14,18 @@ const App = ()=>{
       settodolist(currentTodoItem)
   }
 
+  const RemoveButtonClickHandler = (todoname)=>{
+
+    const CurrentList =   todolist.filter(element=>element.name!=todoname)
+    settodolist(CurrentList)
+
+  }
+
   return <center>
    
     <Title></Title>
     <AddTodo onAddButtonClick={AddButtonclickHandler}></AddTodo>
-    <TodoItem todolist={todolist}></TodoItem>
+    <TodoItem todolist={todolist} onRemoveClick={RemoveButtonClickHandler}></TodoItem>
    
   </center>
 }
