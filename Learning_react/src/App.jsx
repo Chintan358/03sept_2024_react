@@ -4,6 +4,7 @@ import Para from "./Components/Para"
 import Counter  from "./Components/Counter"
 import Input from "./Components/Input"
 import React, { useState } from 'react'
+import Test from "./Components/Test"
 
 function App()
 {
@@ -34,6 +35,7 @@ function App()
             <List stdata={student} clg={"Tops tech"} OnRemoveButtonclick={RemoveHandler} ></List>
             <Para></Para>
             <Counter></Counter>
+            <Test></Test>
             </>
 }
 

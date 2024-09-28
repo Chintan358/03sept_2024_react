@@ -16,15 +16,20 @@ const App = ()=>{
         
         const newArr = [...fooditems,e.target.value]
         setfooditems(newArr)
+        e.target.value="";
       }
-      
+    }
+
+    const removeHandler = (item)=>{
+      let updatelist = fooditems.filter(ele=>ele!=item)
+      setfooditems(updatelist)
     }
 
     return <><Container>
         <Title></Title>
         <Input inputHandler={inputHandler}></Input>
         <ErrorMsg fooditems={fooditems}></ErrorMsg>
-        <FoodItems fooditems={fooditems}></FoodItems>
+        <FoodItems fooditems={fooditems} removeHandler={removeHandler}></FoodItems>
       </Container>
 
       
