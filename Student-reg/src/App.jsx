@@ -9,9 +9,19 @@ const App = ()=>{
 
   const addStudent = (name,email,phone)=>{
 
-    let newStudent = [...students, {name, email, phone}]
-    setStudents(newStudent)
+    setStudents((currentStudent)=>[...currentStudent, {name, email, phone}])
+    
   }
+
+  // const addStudent = (name,email,phone)=>{
+
+  //   setStudents((currentStudent)=>{
+  //     let newStudent = [...currentStudent, {name, email, phone}]
+  //     return newStudent
+  //   })
+  // }
+
+
 
   const removeStudent = (name)=>{
 
@@ -23,6 +33,9 @@ const App = ()=>{
     <Title></Title>
     <Input onAddbuttonClick={addStudent}></Input>
     <List students={students} onRemovebuttonClick={removeStudent}></List>
+
+
+
   </center>
 }
 
