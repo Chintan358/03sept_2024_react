@@ -3,6 +3,8 @@ import './App.css'
 import AddTodo from './Components/AddTodo'
 import Title from './Components/Title'
 import TodoItem from './Components/TodoItem'
+import { TodoItemContext } from './store/Todo-Item-store'
+import Demo from './Components/Demo'
 
 const App = ()=>{
 
@@ -23,9 +25,11 @@ const App = ()=>{
 
   return <center>
    
+    <TodoItemContext.Provider value={{todolist,AddButtonclickHandler,RemoveButtonClickHandler}}>
     <Title></Title>
-    <AddTodo onAddButtonClick={AddButtonclickHandler}></AddTodo>
-    <TodoItem todolist={todolist} onRemoveClick={RemoveButtonClickHandler}></TodoItem>
+    <AddTodo></AddTodo>
+    <TodoItem></TodoItem>
+    </TodoItemContext.Provider>
    
   </center>
 }

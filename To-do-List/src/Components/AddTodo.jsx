@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { TodoItemContext } from "../store/Todo-Item-store";
 
 
-const AddTodo = ({onAddButtonClick})=>{
+const AddTodo = ()=>{
+
+    const {AddButtonclickHandler} = useContext(TodoItemContext)
 
     let [name,setname] = useState("")
     let [date,setdate] = useState("")
@@ -15,7 +18,7 @@ const AddTodo = ({onAddButtonClick})=>{
     }
 
     const onButtonClick = ()=>{
-        onAddButtonClick(name,date)
+        AddButtonclickHandler(name,date)
         setname("")
         setdate("")
     }
