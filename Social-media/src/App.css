@@ -1,0 +1,12 @@
+
+.item-container{
+    display: flex;
+}
+
+.content{
+    width: 100%;
+}
+
+.post-card {
+    margin: 15px 20px;
+}
