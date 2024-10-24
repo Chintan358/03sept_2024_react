@@ -1,18 +1,40 @@
+import { useContext, useRef } from "react"
+import { PostListcontext } from "../store/postlist-store"
+
 const CreatePost = ()=>{
-    return <form>
+
+    const {addPost} = useContext(PostListcontext)
+
+    const postId = useRef()
+    const postTitle = useRef()
+    const postBody = useRef()
+
+    const handleSubmit = (e)=>{
+       e.preventDefault()
+      addPost(postId.current.value,postTitle.current.value,postBody.current.value)
+      postId.current.value=""
+      postTitle.current.value=""
+      postBody.current.value=""
+  
+    }
+
+    return <form className="col-6 m-auto card p-5 mt-2" onSubmit={handleSubmit}>
+   
     <div className="mb-3">
-      <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-      <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-      <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+      <label htmlFor="postId" className="form-label">Post Id</label>
+      <input type="text" className="form-control" id="postId" ref={postId}/>
     </div>
+
     <div className="mb-3">
-      <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-      <input type="password" className="form-control" id="exampleInputPassword1"/>
+      <label htmlFor="postTitle" className="form-label">Post Title</label>
+      <input type="text" className="form-control" id="postTitle" ref={postTitle} />
     </div>
-    <div className="mb-3 form-check">
-      <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-      <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
+
+    <div className="mb-3">
+      <label htmlFor="postBody" className="form-label">Post Body</label>
+      <textarea type="text" className="form-control" id="postBody"ref={postBody} />
     </div>
+    
     <button type="submit" className="btn btn-primary">Submit</button>
   </form>
 }
