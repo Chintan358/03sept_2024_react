@@ -13,6 +13,11 @@ const postListReducer = (currentstate,action)=>{
     else if(action.type=="ADD_LIKES"){
         return currentstate.map(post=>post.id===action.payload? {...post,likes:post.likes+1}:post)
     }
+    else if(action.type=="INIT_POSTS")
+    {   
+      
+        return currentstate=action.payload.posts
+    }
 }
 
 const PostListContextProvider = ({children})=>{
@@ -30,9 +35,19 @@ const PostListContextProvider = ({children})=>{
                 comments: 0
             }
         }
-        postListDispacher(addPostData)
-        
+        postListDispacher(addPostData)  
     }
+
+    const initPost = (posts)=>{
+        
+        const initPostData = {
+            type : "INIT_POSTS",
+            payload : {posts}
+        }
+        postListDispacher(initPostData)
+    }
+
+
     const removePost = (id)=>{
         const removePostData = {
             type : "REMOVE_POST",
@@ -51,7 +66,7 @@ const PostListContextProvider = ({children})=>{
         
     }
 
-    return <PostListcontext.Provider value={{postlist,addPost,removePost,addLikes}}>
+    return <PostListcontext.Provider value={{postlist,addPost,removePost,addLikes,initPost}}>
         {children}
     </PostListcontext.Provider>
 }

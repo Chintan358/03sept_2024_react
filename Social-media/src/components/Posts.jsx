@@ -15,8 +15,9 @@ const Posts = ({posts})=>{
   </span>
       <h5 className="card-title">{posts.title}</h5>
       <p className="card-text">{posts.body}</p>
-      <span class="badge text-bg-primary m-2" onClick={()=>addLikes(posts.id)}>Likes {posts.likes}</span>
-      <span class="badge text-bg-info">Comments {posts.comments}</span>
+      {posts.tags.map(ele=><span class="badge text-bg-primary m-2" >{ele}</span>)}
+     
+     
     </div>
   </div>
 }
