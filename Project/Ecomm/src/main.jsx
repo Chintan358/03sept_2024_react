@@ -8,11 +8,15 @@ import 'font-awesome/css/font-awesome.min.css';
 import {RouterProvider,createBrowserRouter } from 'react-router-dom'
 import Products from './components/Products.jsx'
 import Shop from './components/Shop.jsx'
+import Contact from './components/Contact.jsx'
+import Cart from './components/Cart.jsx'
 
 const router =   createBrowserRouter([
     {path:"/", element:<App/>,
        children:[{path:'/', element:<Products/>},
-        {path:'/shop', element:<Shop/>}
+        {path:'/shop', element:<Shop/>},
+        {path:'/contact', element:<Contact/>},
+        {path:'/cart',element:<Cart/>}
        ]},
    
 ])

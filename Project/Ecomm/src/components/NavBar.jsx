@@ -45,7 +45,7 @@ const NavBar = ()=>{
                         <Link to="/" className="nav-item nav-link active">Home</Link>
                         <Link to="/shop" className="nav-item nav-link">Shop</Link>
                         
-                        <a href="contact.html" className="nav-item nav-link">Contact</a>
+                        <Link to="/contact" className="nav-item nav-link">Contact</Link>
                     </div>
                     <div className="navbar-nav ml-auto py-0">
                         <a href="" className="nav-item nav-link">Login</a>

@@ -4,17 +4,19 @@ import NavBar from "./components/NavBar"
 import Products from "./components/Products"
 import Shop from "./components/Shop"
 import TopBar from "./components/TopBar"
+import ProductContextProvider from "./store/product-store"
 
 const App = ()=>{
 
 
-    return <><TopBar></TopBar>
+    return <ProductContextProvider>
+            <TopBar></TopBar>
              <NavBar></NavBar>
              {/* <Products></Products>
              <Shop></Shop> */}
              <Outlet></Outlet>
              <Footer></Footer>
-    </> 
+            </ProductContextProvider>
 
 }
 

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 const TopBar = ()=>{
     return <><div className="container-fluid">
@@ -54,10 +55,10 @@ const TopBar = ()=>{
                 <i className="fa fa-heart text-primary"></i>
                 <span className="badge">0</span>
             </a>
-            <a href="" className="btn border">
+            <Link to="/cart" className="btn border">
                 <i className="fa fa-shopping-cart text-primary"></i>
                 <span className="badge">0</span>
-            </a>
+            </Link>
         </div>
     </div>
 </div>
