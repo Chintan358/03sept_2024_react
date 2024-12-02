@@ -5,8 +5,6 @@ export const ProductContxt =  createContext()
 const ProductListreducer = (currentState, action)=>{
     if(action.type=='INIT_PRODUCT')
     {   
-        
-        
        return currentState = action.payload.products
     }
 }
@@ -17,14 +15,14 @@ const ProductContextProvider = ({children})=>{
 
     const initProducts = (products)=>{
 
-           
-            
             const initproductsAction = {
                 type  : "INIT_PRODUCT",
                 payload : {products}
             }
             productDispatcher(initproductsAction)
     }
+
+    
 
     return <ProductContxt.Provider value={{productList, initProducts}}>
         {children}

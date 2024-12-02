@@ -38,7 +38,7 @@ const Products = ()=>{
     </div>
     <div className="row px-xl-5 pb-3">
        
-       {productcontextdata.productList.map(products=><ProductList></ProductList>)}
+       {productcontextdata.productList.map(products=><ProductList key={products.id} products={products}></ProductList>)}
       
     </div>
 </div>

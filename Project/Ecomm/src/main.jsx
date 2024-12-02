@@ -10,13 +10,15 @@ import Products from './components/Products.jsx'
 import Shop from './components/Shop.jsx'
 import Contact from './components/Contact.jsx'
 import Cart from './components/Cart.jsx'
+import ShopDetail from './components/ShopDetail.jsx'
 
 const router =   createBrowserRouter([
     {path:"/", element:<App/>,
        children:[{path:'/', element:<Products/>},
         {path:'/shop', element:<Shop/>},
         {path:'/contact', element:<Contact/>},
-        {path:'/cart',element:<Cart/>}
+        {path:'/cart',element:<Cart/>},
+        {path:'/details', element:<ShopDetail/>}
        ]},
    
 ])
