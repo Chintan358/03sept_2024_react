@@ -1,12 +1,11 @@
 import { useEffect } from "react"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 
 
 const ProductList = ({products})=>{
 
 
-   
-
+    
 
 
     return  <div className="col-lg-3 col-md-6 col-sm-12 pb-1">
@@ -21,7 +20,7 @@ const ProductList = ({products})=>{
             </div>
         </div>
         <div className="card-footer d-flex justify-content-between bg-light border">
-            <Link to="/details" className="btn btn-sm text-dark p-0"><i className="fa fa-eye text-primary mr-1"></i>View Detail</Link>
+            <Link to="/details" state={products.id} className="btn btn-sm text-dark p-0"><i className="fa fa-eye text-primary mr-1"></i>View Detail</Link>
             <a href="" className="btn btn-sm text-dark p-0"><i className="fa fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
         </div>
     </div>

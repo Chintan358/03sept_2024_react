@@ -1,39 +1,35 @@
 import { useContext, useEffect, useState } from "react"
 import { ProductContxt } from "../store/product-store"
-
+import { useLocation } from "react-router-dom";
+import axios from 'axios'
 const ShopDetail = ()=>{
 
-    const id  =1;
-    const {productList} = useContext(ProductContxt)
+    const location =  useLocation()
+   
 
-    const data =  productList.find(ele=>{if(ele.id==id){return ele}})
+     const id  = location.state;
+    // const {productList} = useContext(ProductContxt)
+    // const data =  productList.find(ele=>{if(ele.id==id){return ele}})
+
+    const [data,setData] = useState({images:[],reviews:[]})
+       
+        useEffect(()=>{
+
+            fetch(`https://dummyjson.com/products/${id}`).then(data=>{
+                return data.json()
+            }).then(result=>{
+                setData(result)
+            }).catch(err=>{
+                console.log(err);
+                
+            })
     
+        },[])
+   
     
-
-    // useEffect(()=>{
-
-    //     fetch("https://dummyjson.com/products/1").then(data=>{
-    //         return data.json()
-    //     }).then(result=>{
-
-    //        setPdetails(result);
-            
-
-    //     }).catch(err=>{
-    //         console.log(err);
-            
-    //     })
-
-    // },[])
-
-    
-    
-    
-    
-  
-
-
-
+ 
+      
+        
     return  <div className="container-fluid py-5">
     <div className="row px-xl-5">
         <div className="col-lg-5 pb-5">
@@ -125,7 +121,7 @@ const ShopDetail = ()=>{
                         <i className="fa fa-minus"></i>
                         </button>
                     </div>
-                    <input type="text" className="form-control bg-secondary text-center" value="1"/>
+                    <input type="text" className="form-control bg-secondary text-center" defaultValue="1"/>
                     <div className="input-group-btn">
                         <button className="btn btn-primary btn-plus">
                             <i className="fa fa-plus"></i>
@@ -250,7 +246,7 @@ const ShopDetail = ()=>{
                                     <input type="email" className="form-control" id="email"/>
                                 </div>
                                 <div className="form-group mb-0">
-                                    <input type="submit" value="Leave Your Review" className="btn btn-primary px-3"/>
+                                    <input type="submit" defaultValue="Leave Your Review" className="btn btn-primary px-3"/>
                                 </div>
                             </form>
                         </div>
