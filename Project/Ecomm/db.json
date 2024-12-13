@@ -1,0 +1,53 @@
+{
+  "users": [
+    {
+      "username": "",
+      "email": "",
+      "password": "",
+      "phone": "",
+      "id": "c5c8"
+    },
+    {
+      "id": "3f0e",
+      "username": "Tech",
+      "email": "tech@gmail.com",
+      "pass": "123",
+      "phone": "8596857485"
+    },
+    {
+      "id": "8aaa",
+      "username": "Tech",
+      "email": "tech@gmail.com",
+      "pass": "123",
+      "phone": "8596857485"
+    },
+    {
+      "id": "1732",
+      "username": "Tech",
+      "email": "test@gmail.com",
+      "pass": "1",
+      "phone": "8596857485"
+    },
+    {
+      "id": "987a",
+      "username": "Test1",
+      "email": "test@yahoo.com",
+      "pass": "1",
+      "phone": "1234567890"
+    },
+    {
+      "id": "9dfe",
+      "username": "Tech",
+      "email": "tech@gmail.com",
+      "pass": "1",
+      "phone": "9685748596"
+    },
+    {
+      "id": "14d1",
+      "username": "dfdf",
+      "email": "tech@gmail.com",
+      "pass": "dsfdsf",
+      "phone": "dsfdsf"
+    }
+  ]
+}
