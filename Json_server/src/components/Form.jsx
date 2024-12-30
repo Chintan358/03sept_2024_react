@@ -23,7 +23,7 @@ const Form = () => {
                     "password": pass.current.value
                 })
             })
-        }else{
+        } else {
             fetch(`http://localhost:3000/users/${userid.current.value}`, {
                 method: "put",
                 headers: { "Content-type": "application/json" },
@@ -40,6 +40,9 @@ const Form = () => {
         email.current.value = ""
         phone.current.value = ""
         pass.current.value = ""
+
+
+
     }
 
 
@@ -67,12 +70,13 @@ const Form = () => {
             return resp.json()
         }).then(result => {
             setUsers(result);
+            console.log(result);
 
         }).catch(err => {
             console.log(err);
 
         })
-    }, [addUser])
+    },[addUser])
 
     return <div className="container">
         <div className="row">
