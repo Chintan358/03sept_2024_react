@@ -17,7 +17,6 @@ const Profile = () => {
             const userdata = await getDoc(doc(db, "users", user.uid))
             if (userdata.exists()) {
 
-
                 setuserprofile(userdata.data())
             }
             else {
