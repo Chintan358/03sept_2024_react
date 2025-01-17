@@ -11,16 +11,35 @@ const Profile = () => {
     const getuserdata = async () => {
         auth.onAuthStateChanged(async (user) => {
 
+
+
+
             if (user == null) {
                 window.location.href = "/"
             }
-            const userdata = await getDoc(doc(db, "users", user.uid))
-            if (userdata.exists()) {
 
-                setuserprofile(userdata.data())
+
+            if (user.displayName == null) {
+
+                const userdata = await getDoc(doc(db, "users", user.uid))
+
+                if (userdata.exists()) {
+
+
+
+                    setuserprofile(userdata.data())
+                }
+                else {
+
+
+                    setuserprofile({ fname: "dffd" })
+                }
             }
             else {
-                setuserprofile()
+
+
+                const str = user.displayName.split(" ")
+                setuserprofile({ email: user.email, fname: str[0], lname: str[1] })
             }
 
         })
