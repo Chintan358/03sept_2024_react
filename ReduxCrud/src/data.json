@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "uname": "krunal",
+      "email": "krunal@gmail.com",
+      "phone": "8574859685",
+      "id": "ade2"
+    },
+    {
+      "uname": "krunal",
+      "email": "krunal@gmail.com",
+      "phone": "8574859685",
+      "id": "6ce0"
+    },
+    {
+      "id": "79ea",
+      "uname": "dfdf",
+      "email": "dsfdsf",
+      "phone": "fdsfdsf"
+    }
+  ]
+}
