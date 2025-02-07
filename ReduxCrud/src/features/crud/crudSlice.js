@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
-
-const initialState = {}
+var initialState = {}
 
 
 
@@ -30,16 +31,15 @@ export const crudSlice = createSlice({
 
         },
 
-        userbyid: (state, action) => {
+        userbyid: async (state, action) => {
 
-            console.log(action);
 
-            // fetch(`http://localhost:3000/users/${action.payload}`).then(resp => {
-            //     return resp.json()
-            // }).then(result => {
-            //     state = result
+            const result = await axios.get(`http://localhost:3000/users/${action.payload.uid}`)
+            state = result.data
+            console.log(state);
 
-            // })
+            // window.location.href = "/"
+
         }
 
 

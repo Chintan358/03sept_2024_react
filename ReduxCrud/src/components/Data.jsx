@@ -11,7 +11,7 @@ const Data = ({ users }) => {
     }
 
     const updateHandler = (userid) => {
-        dispatch(userbyid({ uid: userid, "navigate": navigate }))
+        dispatch(userbyid({ uid: userid }))
     }
 
 

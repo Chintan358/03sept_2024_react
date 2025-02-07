@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux"
 import Data from "./Data"
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 
 
 const Display = () => {
@@ -14,10 +15,6 @@ const Display = () => {
             setusers(result)
         })
     })
-
-
-
-
 
     return <div className="container">
         <div className="row">
@@ -34,9 +31,11 @@ const Display = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {users.map(users => <Data users={users}></Data>)}
+                        {users.map(users => <Data key={users.id} users={users}></Data>)}
                     </tbody>
                 </table>
+
+                <Link to={"/"}>Add User</Link>
             </div></div></div>
 }
 

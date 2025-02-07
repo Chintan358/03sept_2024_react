@@ -8,7 +8,8 @@ const Reg = () => {
 
     const data = useSelector((state) => state.crud)
     console.log(data.uname);
-    
+
+
     const dispatch = useDispatch()
 
     const uname = useRef()
