@@ -8,7 +8,6 @@ const Create = () => {
 
     const getUsers = (e) => {
         setUsers({ ...users, [e.target.name]: e.target.value })
-        console.log(users);
 
     }
 
