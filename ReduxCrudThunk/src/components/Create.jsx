@@ -1,9 +1,11 @@
 import { useDispatch } from "react-redux"
 import { createuser } from "../features/userDetailSlide"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 const Create = () => {
 
+    const navigate = useNavigate()
     const [users, setUsers] = useState({})
 
     const getUsers = (e) => {
@@ -16,6 +18,7 @@ const Create = () => {
     const submitHandler = (e) => {
         e.preventDefault()
         dispatch(createuser(users))
+        navigate("/display")
     }
 
     return <>

@@ -50,6 +50,39 @@ export const deleteuser = createAsyncThunk("deleteuser", async (id, { rejectWith
     }
 })
 
+export const userById = createAsyncThunk("userById", async (id, { rejectWithValue }) => {
+
+    const response = await fetch(`https://67a57072c0ac39787a1e49fd.mockapi.io/users/${id}`)
+    try {
+        const result = await response.json()
+        return result
+    } catch (error) {
+        return rejectWithValue(error)
+    }
+
+})
+
+export const updateuser = createAsyncThunk("updateuser", async (data, { rejectWithValue }) => {
+
+    const response = await fetch(`https://67a57072c0ac39787a1e49fd.mockapi.io/users/${data.id}`, {
+        method: "put",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+    try {
+
+        const result = await response.json()
+        return result
+
+    } catch (error) {
+
+        return rejectWithValue(error)
+    }
+
+})
+
 
 
 
@@ -79,6 +112,7 @@ export const userDetail = createSlice({
             state.users = action.payload
         }).addCase(displayuser.rejected, (state, action) => {
 
+            console.log(action.payload);
             state.loading = false
             state.users = action.payload
         }).addCase(deleteuser.pending, (state) => {
@@ -90,7 +124,26 @@ export const userDetail = createSlice({
 
             state.loading = false
             state.users = action.payload
+        }).addCase(userById.pending, (state) => {
+            state.loading = true
+        }).addCase(userById.fulfilled, (state, action) => {
+            state.loading = false
+            state.users.push(action.payload)
+        }).addCase(userById.rejected, (state, action) => {
+
+            state.loading = false
+            state.users = action.payload
+        }).addCase(updateuser.pending, (state) => {
+            state.loading = true
+        }).addCase(updateuser.fulfilled, (state, action) => {
+            state.loading = false
+            //state.users.push(action.payload)
+        }).addCase(updateuser.rejected, (state, action) => {
+
+            state.loading = false
+            state.users = action.payload
         })
+
 
 
 

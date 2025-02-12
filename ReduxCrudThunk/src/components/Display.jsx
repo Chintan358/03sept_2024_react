@@ -6,12 +6,12 @@ import { useNavigate } from "react-router-dom"
 const Display = () => {
 
 
+    const navigate = useNavigate()
     const { users, loading } = useSelector((state) => state.app)
     const dispatch = useDispatch()
 
     const deleteUser = (id) => {
         dispatch(deleteuser(id))
-
     }
     useEffect(() => {
         dispatch(displayuser())
@@ -46,6 +46,7 @@ const Display = () => {
                             <td>{ele.age}</td>
                             <td>{ele.gender}</td>
                             <td><button className="btn btn-danger" onClick={() => deleteUser(ele.id)}>Delete</button></td>
+                            <td><button className="btn btn-primary" onClick={() => navigate(`/edit`, { state: { id: ele.id } })}>Edit</button></td>
                         </tr>)}
                     </table>
                 </div>
