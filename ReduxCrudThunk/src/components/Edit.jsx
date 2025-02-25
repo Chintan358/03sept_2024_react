@@ -7,6 +7,7 @@ const Edit = () => {
 
     const location = useLocation()
     const id = location.state.id;
+    
     const [eusers, seteusers] = useState()
     const navigate = useNavigate()
     const { users } = useSelector((state) => state.app)

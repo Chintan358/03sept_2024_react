@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { deleteuser, displayuser } from "../features/userDetailSlide"
 import { useNavigate } from "react-router-dom"
@@ -9,6 +9,34 @@ const Display = () => {
     const navigate = useNavigate()
     const { users, loading } = useSelector((state) => state.app)
     const dispatch = useDispatch()
+
+    const [filter, setfilter] = useState()
+    const [filteredUsers, setFilteredUsers] = useState([])
+    const [search, setsearch] = useState()
+    useEffect(() => {
+        if (search) {
+
+            setFilteredUsers(users.filter((ele) => ele.name.toLowerCase().startsWith(search) && ele.gender === filter))
+        }
+        else if (filter) {
+
+            setFilteredUsers(users.filter((ele) => ele.gender === filter))
+        }
+        else {
+            setFilteredUsers(users)
+        }
+    }, [users, filter, search])
+
+
+    const searchHandler = (e) => {
+
+        setsearch(e.target.value.toLowerCase())
+    }
+
+
+    const filterHandler = (e) => {
+        setfilter(e.target.value)
+    }
 
     const deleteUser = (id) => {
         dispatch(deleteuser(id))
@@ -28,6 +56,11 @@ const Display = () => {
             <div className="row">
                 <div className="col-8 mx-auto card mt-3 p-5">
                     <h1 align='center'>User Details</h1>
+                    <div>
+                        <input type="radio" className="m-2" name="gender" value={"male"} onClick={filterHandler} />Male
+                        <input type="radio" className="m-2" name="gender" value={"female"} onClick={filterHandler} />Female
+                    </div>
+                    <input type="text" placeholder="Search" onKeyUp={searchHandler} />
                     <hr />
                     <table className="table">
                         <tr>
@@ -39,7 +72,7 @@ const Display = () => {
                             <th colSpan={2}>Action</th>
 
                         </tr>
-                        {users.map(ele => <tr>
+                        {filteredUsers.map(ele => <tr>
                             <td>{ele.id}</td>
                             <td>{ele.name}</td>
                             <td>{ele.email}</td>
