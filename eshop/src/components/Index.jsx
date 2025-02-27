@@ -199,23 +199,23 @@ const Index = ()=>{
                     <div className="col-lg-8 text-end">
                         <ul className="nav nav-pills d-inline-flex text-center mb-5">
                             <li className="nav-item">
-                                <a className="d-flex m-2 py-2 bg-light rounded-pill active" data-bs-toggle="pill" href="#tab-1">
+                                <a  className={`d-flex py-2 m-2 bg-light rounded-pill ${filter==undefined && 'active'} `} >
                                     <span className="text-dark" style={{width: "130px"}} onClick={()=>filterHandler()}>All Products</span>
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="d-flex py-2 m-2 bg-light rounded-pill">
+                                <a className={`d-flex py-2 m-2 bg-light rounded-pill ${filter=='Vegetables' && 'active'} `}>
                                     <span className="text-dark" style={{width: "130px"}} onClick={()=>filterHandler("Vegetables")}>Vegetables</span>
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="d-flex m-2 py-2 bg-light rounded-pill" >
+                                <a  className={`d-flex py-2 m-2 bg-light rounded-pill ${filter=='Fruits' && 'active'} `}>
                                     <span className="text-dark" style={{width: "130px"}} onClick={()=>filterHandler("Fruits")}>Fruits</span>
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="d-flex m-2 py-2 bg-light rounded-pill">
-                                    <span className="text-dark" style={{width: "130px"}} onClick={()=>filterHandler("Breads")}>Bread</span>
+                                <a className={`d-flex py-2 m-2 bg-light rounded-pill ${filter=='Breads' && 'active'} `}>
+                                    <span  className="text-dark" style={{width: "130px"}} onClick={()=>filterHandler("Breads")}>Bread</span>
                                 </a>
                             </li>
                             
