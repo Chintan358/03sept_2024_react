@@ -1,16 +1,20 @@
 import { useRazorpay, RazorpayOrderOptions } from "react-razorpay";
 import axios from 'axios'
+import { useState } from "react";
 const Payment = ()=>{
 
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     const { error, isLoading, Razorpay } = useRazorpay();
 
+    const [amt, setamt] = useState()
+    const getamount=(e)=>{
+        setamt(e.target.value)
+    }
+
     const handlePayment = async () => {
        
-
-
         //creating a new order
-        const result = await axios.get("http://localhost:3000/makepayment");
+        const result = await axios.get(`https://paymentserver-lbze.onrender.com/pay?amt=${amt}`);
 
         if (!result) {
             alert("Server error. Are you online?");
@@ -63,6 +67,7 @@ const Payment = ()=>{
           <h1>Payment Page</h1>
           {isLoading && <p>Loading Razorpay...</p>}
           {error && <p>Error loading Razorpay: {error}</p>}
+          <input type="text" onChange={getamount} />
           <button onClick={handlePayment} disabled={isLoading}>
             Pay Now
           </button>
